@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+@theme {
+	--color-primary: #6b5847;   /* Muted walnut brown */
+	--color-secondary: #4e3d32; /* Deep earthy brown */
+	--color-accent: #a8927d;    /* Soft beige for highlights */
+	--color-ghost-white: #f8f8ff;
+
+
+	--font-inter: "Inter", sans-serif;
+}

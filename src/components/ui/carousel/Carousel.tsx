@@ -1,0 +1,101 @@
+import React, { useEffect, useState } from "react";
+import useEmblaCarousel from "embla-carousel-react";
+import UnsplashImage from "../UnsplashImage";
+import PrimaryLink from "../buttons/PrimaryLink";
+import { FaArrowRight } from "react-icons/fa6";
+
+type Slide = {
+	title: string;
+	subtitle: string;
+  photoId: string;
+	cta: {
+		text: string 
+		url: string;
+	}
+	className?: string;
+};
+
+type Props = {
+  slides: Slide[];
+  autoplayInterval?: number;
+};
+
+const PhotoCarousel: React.FC<Props> = ({
+  slides,
+  autoplayInterval = 6_000,
+}) => {
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: true,
+    dragFree: false,
+  });
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+
+    const onSelect = () => setSelectedIndex(emblaApi.selectedScrollSnap());
+    emblaApi.on("select", onSelect);
+    onSelect(); // initial
+
+    return () => {
+      emblaApi.off("select", onSelect);
+    };
+  }, [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+
+    const autoplay = setInterval(() => {
+      emblaApi.scrollNext();
+    }, autoplayInterval);
+
+    return () => clearInterval(autoplay); //cleanup on unmount
+  }, [emblaApi, autoplayInterval]);
+
+  return (
+    <div className="relative">
+      {/* Carousel Track */}
+      <div className="overflow-hidden" ref={emblaRef}>
+        <div className="flex">
+          {slides.map((slide, index) => (
+            <div
+              key={index}
+              className="min-w-full relative flex-shrink-0 h-[700px]"
+            >
+              <UnsplashImage
+                photoId={slide.photoId}
+                alt={"slide.jpeg"}
+                className={`w-full h-full object-cover ${slide.className}`}
+              />
+                <div className="absolute flex flex-col  top-1/2 w-[600px] -translate-y-1/2 left-20 text-white text-xl bg-black/80 py-10 px-8 rounded">
+								<div className="flex mb-4 flex-col gap-y-4">
+									<h1 className="text-4xl font-bold">{slide.title}</h1>
+									<p className="max-w-[60ch]">{slide.subtitle}</p>
+								</div>
+									<PrimaryLink  url={slide.cta.url}  className="py-4 px-6 inline-flex self-start  items-center gap-x-2 ">
+										{slide.cta.text}
+									<FaArrowRight/>
+									</PrimaryLink >
+                </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Dots */}
+      <div className="absolute bottom-4 w-full flex justify-center gap-2">
+        {slides.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => emblaApi?.scrollTo(index)}
+            className={`w-4 h-4 cursor-pointer rounded-full border border-white transition-colors ${
+              index === selectedIndex ? "bg-white" : "hover:bg-white/70"
+            }`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default PhotoCarousel;
