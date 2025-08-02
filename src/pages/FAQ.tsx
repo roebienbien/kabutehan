@@ -1,6 +1,5 @@
 import { useState } from "react";
 import FAQAccordion from "../components/ui/FAQAccordion";
-import UnsplashImage from "../components/ui/UnsplashImage";
 
 type TFaq = {
   question: string;

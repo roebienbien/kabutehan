@@ -1,4 +1,3 @@
-import Carousel from "../components/ui/carousel/Carousel";
 import FAQ from "./FAQ";
 import Hero from "./Hero";
 
