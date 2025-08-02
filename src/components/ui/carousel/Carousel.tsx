@@ -67,7 +67,8 @@ const PhotoCarousel: React.FC<Props> = ({
                 alt={"slide.jpeg"}
                 className={`w-full h-full object-cover ${slide.className}`}
               />
-                <div className="absolute flex flex-col  top-1/2 w-[600px] -translate-y-1/2 left-20 text-white text-xl bg-black/80 py-10 px-8 rounded">
+                <div className="absolute flex flex-col  top-1/2 w-[600px] -translate-y-1/2 left-20 text-black text-xl bg-white py-10 px-8 rounded">
+                {/* <div className="absolute flex flex-col  top-1/2 w-[600px] -translate-y-1/2 left-20 text-white text-xl bg-black/80 py-10 px-8 rounded"> */}
 								<div className="flex mb-4 flex-col gap-y-4">
 									<h1 className="text-4xl font-bold">{slide.title}</h1>
 									<p className="max-w-[60ch]">{slide.subtitle}</p>

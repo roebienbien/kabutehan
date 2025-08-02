@@ -4,12 +4,12 @@ import Footer from "./Footer";
 
 function Layout() {
   return (
-    <div>
+    <div className="min-h-screen flex flex-col">
       <Navbar />
-      <main className="">
+      <main className="bg-ghost-white ">
         <Outlet />
       </main>
-      <Footer />
+			<Footer />
     </div>
   );
 }
