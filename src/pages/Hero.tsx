@@ -55,7 +55,7 @@ const carouselSlides: Slide[] = [
 
 function Hero() {
   return (
-    <div className="max-h-screen">
+    <div className="">
       <Carousel slides={carouselSlides} autoplayInterval={10_000} />
     </div>
   );
