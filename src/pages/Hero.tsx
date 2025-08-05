@@ -1,4 +1,4 @@
-import Carousel from "../components/ui/carousel/Carousel";
+import Carousel from '../components/ui/carousel/Carousel';
 
 type Slide = {
   title: string;
@@ -13,49 +13,49 @@ type Slide = {
 
 const carouselSlides: Slide[] = [
   {
-    title: "Explore Rare and Wild Fungi",
+    title: 'Explore Rare and Wild Fungi',
     subtitle:
-      "Dive into interactive exhibits that showcase the beauty and science of mushrooms.",
-    photoId: "1509470159718-4e7ad930cf7a", // Replace with your actual image path
+      'Dive into interactive exhibits that showcase the beauty and science of mushrooms.',
+    photoId: '1509470159718-4e7ad930cf7a', // Replace with your actual image path
     cta: {
-      text: "Learn More",
-      url: "/exhibits",
+      text: 'Learn More',
+      url: '/exhibits',
     },
-    className: "scale-x-[-1]",
+    className: 'scale-x-[-1]',
   },
   {
-    title: "Learn the Science of Mycology",
-    subtitle: "Join hands-on classes, guided tours, and expert-led lectures.",
-    photoId: "1662974555158-a97c4454accf",
+    title: 'Learn the Science of Mycology',
+    subtitle: 'Join hands-on classes, guided tours, and expert-led lectures.',
+    photoId: '1662974555158-a97c4454accf',
     cta: {
-      text: "View Schedule",
-      url: "/workshops",
+      text: 'View Schedule',
+      url: '/workshops',
     },
   },
   {
-    title: "From Plate to Healing",
+    title: 'From Plate to Healing',
     subtitle:
-      "Discover the culinary and medicinal uses of mushrooms in Filipino culture and beyond.",
-    photoId: "1492574037190-8b88b600ca50",
+      'Discover the culinary and medicinal uses of mushrooms in Filipino culture and beyond.',
+    photoId: '1492574037190-8b88b600ca50',
     cta: {
       text: "See What's Inside",
-      url: "/medicinal",
+      url: '/medicinal',
     },
   },
   {
-    title: "Fungi for a Greener Tomorrow",
-    subtitle: "Learn how mushrooms help restore ecosystems and reduce waste.",
-    photoId: "1550824730-05ededc35e7a",
+    title: 'Fungi for a Greener Tomorrow',
+    subtitle: 'Learn how mushrooms help restore ecosystems and reduce waste.',
+    photoId: '1550824730-05ededc35e7a',
     cta: {
-      text: "Get Involved",
-      url: "/sustainability",
+      text: 'Get Involved',
+      url: '/sustainability',
     },
   },
 ];
 
 function Hero() {
   return (
-    <div className="">
+    <div className="max-h-screen">
       <Carousel slides={carouselSlides} autoplayInterval={10_000} />
     </div>
   );

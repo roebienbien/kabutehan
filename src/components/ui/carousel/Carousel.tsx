@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from "react";
-import useEmblaCarousel from "embla-carousel-react";
-import UnsplashImage from "../UnsplashImage";
-import PrimaryLink from "../buttons/PrimaryLink";
-import { FaArrowRight } from "react-icons/fa6";
+import React, { useEffect, useState } from 'react';
+import useEmblaCarousel from 'embla-carousel-react';
+import UnsplashImage from '../UnsplashImage';
+import PrimaryLink from '../buttons/PrimaryLink';
+import { FaArrowRight } from 'react-icons/fa6';
 
 type Slide = {
-	title: string;
-	subtitle: string;
+  title: string;
+  subtitle: string;
   photoId: string;
-	cta: {
-		text: string 
-		url: string;
-	}
-	className?: string;
+  cta: {
+    text: string;
+    url: string;
+  };
+  className?: string;
 };
 
 type Props = {
@@ -34,11 +34,11 @@ const PhotoCarousel: React.FC<Props> = ({
     if (!emblaApi) return;
 
     const onSelect = () => setSelectedIndex(emblaApi.selectedScrollSnap());
-    emblaApi.on("select", onSelect);
+    emblaApi.on('select', onSelect);
     onSelect(); // initial
 
     return () => {
-      emblaApi.off("select", onSelect);
+      emblaApi.off('select', onSelect);
     };
   }, [emblaApi]);
 
@@ -60,37 +60,40 @@ const PhotoCarousel: React.FC<Props> = ({
           {slides.map((slide, index) => (
             <div
               key={index}
-              className="min-w-full relative flex-shrink-0 h-[700px]"
+              className="relative h-[80dvh] min-w-full flex-shrink-0"
             >
               <UnsplashImage
                 photoId={slide.photoId}
-                alt={"slide.jpeg"}
-                className={`w-full h-full object-cover ${slide.className}`}
+                alt="slide.jpeg"
+                className={`h-full w-full object-cover ${slide.className}`}
               />
-                <div className="absolute flex flex-col  top-1/2 w-[600px] -translate-y-1/2 left-20 text-black text-xl bg-white py-10 px-8 rounded">
-                {/* <div className="absolute flex flex-col  top-1/2 w-[600px] -translate-y-1/2 left-20 text-white text-xl bg-black/80 py-10 px-8 rounded"> */}
-								<div className="flex mb-4 flex-col gap-y-4">
-									<h1 className="text-4xl font-bold">{slide.title}</h1>
-									<p className="max-w-[60ch]">{slide.subtitle}</p>
-								</div>
-									<PrimaryLink  url={slide.cta.url}  className="py-4 px-6 inline-flex self-start  items-center gap-x-2 ">
-										{slide.cta.text}
-									<FaArrowRight/>
-									</PrimaryLink >
+              <div className="absolute inset-0 flex items-center justify-center px-4 md:justify-start md:px-16">
+                <div className="w-full max-w-[300px] rounded bg-white px-6 py-8 text-black sm:max-w-md md:max-w-lg">
+                  <h1 className="text-2xl font-bold md:text-4xl">
+                    {slide.title}
+                  </h1>
+                  <p className="mt-4">{slide.subtitle}</p>
+                  <PrimaryLink
+                    className="mt-6 inline-flex items-center gap-2 px-6 py-4"
+                    url={slide.cta.url}
+                  >
+                    {slide.cta.text} <FaArrowRight />
+                  </PrimaryLink>
                 </div>
+              </div>
             </div>
           ))}
         </div>
       </div>
 
       {/* Dots */}
-      <div className="absolute bottom-4 w-full flex justify-center gap-2">
+      <div className="absolute bottom-4 flex w-full justify-center gap-2">
         {slides.map((_, index) => (
           <button
             key={index}
             onClick={() => emblaApi?.scrollTo(index)}
-            className={`w-4 h-4 cursor-pointer rounded-full border border-white transition-colors ${
-              index === selectedIndex ? "bg-white" : "hover:bg-white/70"
+            className={`h-4 w-4 cursor-pointer rounded-full border border-white transition-colors ${
+              index === selectedIndex ? 'bg-white' : 'hover:bg-white/70'
             }`}
           />
         ))}

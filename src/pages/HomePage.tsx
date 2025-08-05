@@ -1,11 +1,11 @@
-import FAQ from "./FAQ";
-import Hero from "./Hero";
+import FAQ from './FAQ';
+import Hero from './Hero';
 
 function HomePage() {
   return (
-    <div className="min-h-screen grid">
-				<Hero />
-				<FAQ />
+    <div className="grid">
+      <Hero />
+      <FAQ />
     </div>
   );
 }

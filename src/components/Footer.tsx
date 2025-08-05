@@ -4,33 +4,33 @@ import {
   FaInstagram,
   FaXTwitter,
   FaYoutube,
-} from "react-icons/fa6";
+} from 'react-icons/fa6';
 
 const Socials = [
   {
-    name: "x",
+    name: 'x',
     icon: <FaXTwitter />,
-    url: "https://www.example.com",
+    url: 'https://www.example.com',
   },
   {
-    name: "instagram",
+    name: 'instagram',
     icon: <FaInstagram />,
-    url: "https://www.example.com",
+    url: 'https://www.example.com',
   },
   {
-    name: "facebook",
+    name: 'facebook',
     icon: <FaFacebookF />,
-    url: "https://www.example.com",
+    url: 'https://www.example.com',
   },
   {
-    name: "youtube",
+    name: 'youtube',
     icon: <FaYoutube />,
-    url: "https://www.example.com",
+    url: 'https://www.example.com',
   },
   {
-    name: "github",
+    name: 'github',
     icon: <FaGithub />,
-    url: "https://www.example.com",
+    url: 'https://www.example.com',
   },
 ];
 
@@ -44,86 +44,86 @@ type TLinks = {
 
 const Links: TLinks[] = [
   {
-    title: "Solutions",
+    title: 'Solutions',
     subLinks: [
       {
-        name: "Marketing",
-        url: "https://www.example.com",
+        name: 'Marketing',
+        url: 'https://www.example.com',
       },
       {
-        name: "Analytics",
-        url: "https://www.example.com",
+        name: 'Analytics',
+        url: 'https://www.example.com',
       },
       {
-        name: "Automation",
-        url: "https://www.example.com",
+        name: 'Automation',
+        url: 'https://www.example.com',
       },
       {
-        name: "Commerce",
-        url: "https://www.example.com",
+        name: 'Commerce',
+        url: 'https://www.example.com',
       },
       {
-        name: "Insights",
-        url: "https://www.example.com",
+        name: 'Insights',
+        url: 'https://www.example.com',
       },
     ],
   },
   {
-    title: "Support",
+    title: 'Support',
     subLinks: [
       {
-        name: "Submit ticket",
-        url: "https://www.example.com",
+        name: 'Submit ticket',
+        url: 'https://www.example.com',
       },
       {
-        name: "Documentation",
-        url: "https://www.example.com",
+        name: 'Documentation',
+        url: 'https://www.example.com',
       },
       {
-        name: "Guide",
-        url: "https://www.example.com",
+        name: 'Guide',
+        url: 'https://www.example.com',
       },
     ],
   },
   {
-    title: "Company",
+    title: 'Company',
     subLinks: [
       {
-        name: "About",
-        url: "https://www.example.com",
+        name: 'About',
+        url: 'https://www.example.com',
       },
       {
-        name: "Blog",
-        url: "https://www.example.com",
+        name: 'Blog',
+        url: 'https://www.example.com',
       },
       {
-        name: "Jobs",
-        url: "https://www.example.com",
+        name: 'Jobs',
+        url: 'https://www.example.com',
       },
       {
-        name: "Press",
-        url: "https://www.example.com",
+        name: 'Press',
+        url: 'https://www.example.com',
       },
     ],
   },
   {
-    title: "Legal",
+    title: 'Legal',
     subLinks: [
       {
-        name: "Terms of service",
-        url: "https://www.example.com",
+        name: 'Terms of service',
+        url: 'https://www.example.com',
       },
       {
-        name: "Privacy policy",
-        url: "https://www.example.com",
+        name: 'Privacy policy',
+        url: 'https://www.example.com',
       },
       {
-        name: "License",
-        url: "https://www.example.com",
+        name: 'License',
+        url: 'https://www.example.com',
       },
       {
-        name: "Press",
-        url: "https://www.example.com",
+        name: 'Press',
+        url: 'https://www.example.com',
       },
     ],
   },
@@ -131,14 +131,14 @@ const Links: TLinks[] = [
 
 function Footer() {
   return (
-    <div className="h-[700px] relative  grid justify-center items-center  p-12 grid-cols-[1fr_1.3fr] text-white bg-zinc-900">
+    <div className="relative grid min-h-fit grid-cols-1 items-center justify-center gap-y-10 bg-zinc-900 p-8 text-white md:grid-cols-[1fr_1.3fr]">
       <div className="col-span-1 flex flex-col gap-4 gap-y-8">
         <span className="text-3xl">Icon</span>
         <p className="text-lg font-medium">
           Making the world a better place through constructing elegant
           hierarchies.
         </p>
-        <div className="flex gap-x-6 text-gray-300 ">
+        <div className="flex gap-x-6 text-gray-300">
           {Socials.map((item, index) => (
             <a
               href={item.url}
@@ -151,12 +151,12 @@ function Footer() {
           ))}
         </div>
       </div>
-      <div className="col-span-1 ">
-        <div className="flex  gap-4 justify-between gap-x-4">
+      <div className="col-span-1">
+        <div className="grid grid-cols-2 justify-between gap-x-4 gap-y-8">
           {Links.map((item, index) => (
-            <div key={index} className="flex gap-y-4 flex-col">
-              <span className="text-lg font-medium ">{item.title}</span>
-              <div className="gap-y-4 flex flex-col">
+            <div key={index} className="flex flex-col gap-y-4">
+              <span className="text-lg font-medium">{item.title}</span>
+              <div className="flex flex-col gap-y-4">
                 {item.subLinks.map((sublink, index) => (
                   <a key={index} href={sublink.url} className="">
                     {sublink.name}
@@ -167,10 +167,11 @@ function Footer() {
           ))}
         </div>
       </div>
-      <div className="absolute bottom-0 px-10 py-8 w-full">
-        <div className="border-t border-t-gray-100 opacity-20 pb-4" />
+      {/* <div className="absolute bottom-0 w-full px-10 py-8"> */}
+      <div className="w-full py-8 lg:px-10">
+        <div className="border-t border-t-gray-100 pb-4 opacity-20" />
         <span>
-          @ {new Date().getFullYear()} Kabutehan, Co. All rights reserved.
+          @ {new Date().getFullYear()} Kabutehan. All rights reserved.
         </span>
       </div>
     </div>
