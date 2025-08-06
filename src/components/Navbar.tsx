@@ -34,17 +34,19 @@ const Navbar = () => {
 
   return (
     <nav className="bg-ghost-white sticky top-0 z-[999] w-full border-b border-gray-300">
-      <div className="mx-auto flex h-18 max-w-7xl items-center justify-between px-4 text-xl">
-        {/* Logo */}
-        <span className="text-2xl font-extrabold">Kabutehan</span>
+      <div className="mx-auto flex h-18 max-w-[90%] items-center justify-between px-4 text-xl">
+        <div className="flex items-center gap-x-12">
+          {/* Logo */}
+          <span className="text-2xl font-extrabold">Kabutehan</span>
 
-        {/* Desktop Links */}
-        <div className="hidden items-center gap-x-14 font-medium lg:flex">
-          {NavLinks.map((item, index) => (
-            <Link to={item.url} key={index}>
-              {item.name}
-            </Link>
-          ))}
+          {/* Desktop Links */}
+          <div className="hidden items-center gap-x-10 font-medium lg:flex">
+            {NavLinks.map((item, index) => (
+              <Link to={item.url} key={index}>
+                {item.name}
+              </Link>
+            ))}
+          </div>
         </div>
 
         {/* Desktop Buttons */}

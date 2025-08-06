@@ -1,21 +1,22 @@
-import { Link } from "react-router-dom";
-import { twMerge } from "tailwind-merge";
+import { Link } from 'react-router-dom';
+import { twMerge } from 'tailwind-merge';
 
 type Props = {
-  url: string;
+  to: string;
+  // text: string;
   className?: string;
-	children?: React.ReactNode
+  children?: React.ReactNode | string;
 };
 
-function PrimaryLink({ url,  className, children }: Props) {
+function PrimaryLink({ to, className, children }: Props) {
   return (
     <Link
-      to={url}
+      to={to}
       className={twMerge(
-        `bg-primary text-white font-medium cursor-pointer p-2  rounded hover:bg-[#5f4b3d] ${className}`,
+        `bg-primary cursor-pointer rounded p-2 font-medium text-white hover:bg-[#5f4b3d] ${className}`,
       )}
     >
-			{children}
+      {children}
     </Link>
   );
 }

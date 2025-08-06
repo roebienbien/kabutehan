@@ -18,17 +18,20 @@ type Slide = {
 type Props = {
   slides: Slide[];
   autoplayInterval?: number;
+  pauseOnHover?: boolean;
 };
 
 const PhotoCarousel: React.FC<Props> = ({
   slides,
   autoplayInterval = 6_000,
+  pauseOnHover = false,
 }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: true,
     dragFree: false,
   });
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     if (!emblaApi) return;
@@ -50,10 +53,14 @@ const PhotoCarousel: React.FC<Props> = ({
     }, autoplayInterval);
 
     return () => clearInterval(autoplay); //cleanup on unmount
-  }, [emblaApi, autoplayInterval]);
+  }, [emblaApi, autoplayInterval, pauseOnHover, isHovered]);
 
   return (
-    <div className="relative">
+    <div
+      onMouseEnter={() => pauseOnHover && setIsHovered(true)}
+      onMouseLeave={() => pauseOnHover && setIsHovered(false)}
+      className="relative"
+    >
       {/* Carousel Track */}
       <div className="overflow-hidden" ref={emblaRef}>
         <div className="flex">

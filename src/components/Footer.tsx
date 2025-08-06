@@ -131,7 +131,7 @@ const Links: TLinks[] = [
 
 function Footer() {
   return (
-    <div className="relative grid min-h-fit grid-cols-1 items-center justify-center gap-y-10 bg-zinc-900 p-8 text-white md:grid-cols-[1fr_1.3fr]">
+    <div className="relative grid min-h-fit grid-cols-1 items-center justify-center gap-y-10 bg-zinc-900 p-8 text-white lg:grid-cols-[1fr_1.3fr] lg:gap-x-4 lg:pt-20">
       <div className="col-span-1 flex flex-col gap-4 gap-y-8">
         <span className="text-3xl">Icon</span>
         <p className="text-lg font-medium">
@@ -152,7 +152,7 @@ function Footer() {
         </div>
       </div>
       <div className="col-span-1">
-        <div className="grid grid-cols-2 justify-between gap-x-4 gap-y-8">
+        <div className="grid grid-cols-2 justify-between gap-x-4 gap-y-8 lg:grid-cols-4">
           {Links.map((item, index) => (
             <div key={index} className="flex flex-col gap-y-4">
               <span className="text-lg font-medium">{item.title}</span>
@@ -168,7 +168,7 @@ function Footer() {
         </div>
       </div>
       {/* <div className="absolute bottom-0 w-full px-10 py-8"> */}
-      <div className="w-full py-8 lg:px-10">
+      <div className="col-span-full w-full py-8 text-center lg:text-right">
         <div className="border-t border-t-gray-100 pb-4 opacity-20" />
         <span>
           @ {new Date().getFullYear()} Kabutehan. All rights reserved.
