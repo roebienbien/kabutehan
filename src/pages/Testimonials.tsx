@@ -22,7 +22,7 @@ const Reviews = [
 
 const Testimonials = () => {
   return (
-    <section className="grid h-screen items-center justify-center bg-red-50 px-4">
+    <section className="grid h-screen items-center justify-center px-4">
       <div className="grid w-full max-w-6xl items-center justify-center gap-y-10 lg:grid-cols-2">
         {Reviews.map((review, index) => (
           <div
