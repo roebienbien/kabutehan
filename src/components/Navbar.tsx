@@ -62,7 +62,7 @@ const Navbar = () => {
           aria-label="Toggle Menu"
         >
           {/* {isOpen ? <FaXTwitter size={24} /> : <RxHamburgerMenu size={24} />} */}
-          <HamburgerMenu />
+          <HamburgerMenu isOpen={isOpen} />
         </button>
       </div>
 

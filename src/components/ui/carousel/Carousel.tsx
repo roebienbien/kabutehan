@@ -82,7 +82,7 @@ const PhotoCarousel: React.FC<Props> = ({
                   <p className="mt-4">{slide.subtitle}</p>
                   <PrimaryLink
                     className="mt-6 inline-flex items-center gap-2 px-6 py-4"
-                    url={slide.cta.url}
+                    to={slide.cta.url}
                   >
                     {slide.cta.text} <FaArrowRight />
                   </PrimaryLink>
