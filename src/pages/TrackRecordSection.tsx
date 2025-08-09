@@ -27,22 +27,24 @@ const trackRecord = [
 
 const TrackRecordSection = () => {
   return (
-    <section className="min-h-dynamic-height">
-      <div className="flex flex-col gap-y-4 px-8 py-8">
-        <div className="flex flex-col gap-y-4">
-          <div className="">Our track record</div>
-          <div className="text-2xl">
-            Truted by the thousands of creators wordwide
+    <section className="min-h-dynamic-height flex items-center justify-center md:min-h-[800px]">
+      <div className="flex flex-col items-center gap-y-4 px-8 py-8 lg:gap-y-10">
+        <div className="flex flex-col lg:gap-y-4">
+          <div className="text-primary lg:text-xl">Our track record</div>
+          <div className="text-lg font-bold md:text-2xl lg:text-4xl">
+            Trusted by the thousands of creators wordwide
           </div>
         </div>
-        <div className="grid grid-cols-1 gap-y-8 lg:grid-cols-2">
+        <div className="grid grid-cols-1 gap-y-8 lg:grid-cols-2 lg:gap-x-40 lg:gap-y-10">
           {trackRecord.map((item, index) => (
             <div
-              className="border-primary flex flex-col border-l-[3px] p-4"
+              className="border-primary/40 flex flex-col border-l p-4"
               key={index}
             >
-              <div className="text-3xl">{item.count}</div>
-              <h3>{item.title}</h3>
+              <div className="text-primary text-lg font-bold lg:text-5xl">
+                {item.count}
+              </div>
+              <h3 className="text-sm lg:text-lg">{item.title}</h3>
             </div>
           ))}
         </div>
