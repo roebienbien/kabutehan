@@ -1,4 +1,4 @@
-import Carousel from '../components/ui/carousel/Carousel';
+import Carousel from '../../components/ui/carousel/Carousel';
 
 type Slide = {
   title: string;

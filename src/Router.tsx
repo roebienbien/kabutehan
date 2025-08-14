@@ -1,17 +1,17 @@
-import { createBrowserRouter } from "react-router-dom";
-import Layout from "./components/Layout";
-import HomePage from "./pages/HomePage";
+import { createBrowserRouter } from 'react-router-dom';
+import Layout from './components/Layout';
+import HomePage from './pages/homepage/HomePage';
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <Layout />,
     children: [
       {
         index: true,
         element: <HomePage />,
       },
-			// more children
+      // more children
     ],
   },
 ]);

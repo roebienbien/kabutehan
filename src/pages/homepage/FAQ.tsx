@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import FAQAccordion from '../components/ui/FAQAccordion';
+import FAQAccordion from '../../components/ui/FAQAccordion';
 
 type TFaq = {
   question: string;

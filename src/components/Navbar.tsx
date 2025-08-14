@@ -1,9 +1,7 @@
 import { Link } from 'react-router-dom';
 import PrimaryButton from './ui/buttons/PrimaryButton';
 import SecondaryButton from './ui/buttons/SecondaryButton';
-import { FaXbox, FaXTwitter } from 'react-icons/fa6';
 import { useState } from 'react';
-import { RxHamburgerMenu } from 'react-icons/rx';
 import HamburgerMenu from './ui/HamburgerMenu';
 
 const NavLinks = [
@@ -33,8 +31,8 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-ghost-white sticky top-0 z-[999] w-full border-b border-gray-300">
-      <div className="mx-auto flex h-18 max-w-[90%] items-center justify-between px-4 text-xl">
+    <nav className="bg-ghost-white sticky top-0 z-[1000] w-full border-b border-gray-300">
+      <div className="mx-auto flex h-16 max-w-[90%] items-center justify-between px-4 text-xl">
         <div className="flex items-center gap-x-12">
           {/* Logo */}
           <span className="text-2xl font-extrabold">Kabutehan</span>
@@ -61,7 +59,6 @@ const Navbar = () => {
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle Menu"
         >
-          {/* {isOpen ? <FaXTwitter size={24} /> : <RxHamburgerMenu size={24} />} */}
           <HamburgerMenu isOpen={isOpen} />
         </button>
       </div>
@@ -69,22 +66,22 @@ const Navbar = () => {
       {/* Mobile Dropdown Menu */}
       {isOpen && (
         <div
-          className={`bg-ghost-white absolute right-0 flex min-h-[100dvh] w-full transform justify-center space-y-4 transition-transform duration-1000 ease-in-out lg:hidden ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}
+          className={`bg-ghost-white absolute flex min-h-[100dvh] w-full transform items-center justify-center space-y-4 transition-transform duration-1000 ease-in-out lg:hidden ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}
         >
-          <div className="flex flex-col items-center gap-y-8 py-8">
+          <div className="flex flex-col items-center gap-y-8">
             {NavLinks.map((item, index) => (
               <Link
                 to={item.url}
                 key={index}
-                className="block text-base font-medium"
+                className="block text-base font-medium md:text-2xl"
                 onClick={() => setIsOpen(false)}
               >
                 {item.name}
               </Link>
             ))}
             <div className="flex w-full flex-col gap-3 pt-2">
-              <PrimaryButton text="Log in" />
-              <SecondaryButton text="Sign up" />
+              <PrimaryButton text="Log in" className="h-12 w-40" />
+              <SecondaryButton text="Sign up" className="h-12 w-40" />
             </div>
           </div>
         </div>
