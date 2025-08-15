@@ -32,13 +32,13 @@ const Navbar = () => {
 
   return (
     <nav className="bg-ghost-white sticky top-0 z-[1000] w-full border-b border-gray-300">
-      <div className="mx-auto flex h-16 max-w-[90%] items-center justify-between px-4 text-xl">
+      <div className="mx-auto flex h-14 max-w-[90%] items-center justify-between px-4 text-xl">
         <div className="flex items-center gap-x-12">
           {/* Logo */}
           <span className="text-2xl font-extrabold">Kabutehan</span>
 
           {/* Desktop Links */}
-          <div className="hidden items-center gap-x-10 font-medium lg:flex">
+          <div className="hidden items-center gap-x-10 text-lg font-medium lg:flex">
             {NavLinks.map((item, index) => (
               <Link to={item.url} key={index}>
                 {item.name}
@@ -49,8 +49,8 @@ const Navbar = () => {
 
         {/* Desktop Buttons */}
         <div className="hidden gap-x-6 lg:flex">
-          <PrimaryButton text="Log in" />
-          <SecondaryButton text="Sign up" />
+          <PrimaryButton className="w-24 text-lg" text="Log in" />
+          <SecondaryButton className="w-24 text-lg" text="Sign up" />
         </div>
 
         {/* Mobile Menu Button */}
@@ -80,8 +80,8 @@ const Navbar = () => {
               </Link>
             ))}
             <div className="flex w-full flex-col gap-3 pt-2">
-              <PrimaryButton text="Log in" className="h-12 w-40" />
-              <SecondaryButton text="Sign up" className="h-12 w-40" />
+              <PrimaryButton text="Log in" className="h-10 w-40" />
+              <SecondaryButton text="Sign up" className="h-10 w-40" />
             </div>
           </div>
         </div>

@@ -1,3 +1,5 @@
+import DatePicker from '../../components/DatePicker';
+import ProductSearch from '../../components/ProductSearch';
 import Carousel from '../../components/ui/carousel/Carousel';
 
 type Slide = {
@@ -57,6 +59,8 @@ function Hero() {
   return (
     <div className="">
       <Carousel slides={carouselSlides} autoplayInterval={10_000} />
+      <ProductSearch />
+      <DatePicker />
     </div>
   );
 }

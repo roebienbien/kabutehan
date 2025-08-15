@@ -8,6 +8,7 @@ import { getFungiByCategory } from '../../utils/fungiFilters';
 
 const MedicinalFungi = () => {
   const medicinalFungi = getFungiByCategory('medicinal fungi');
+  console.log(fungiList);
   console.log(medicinalFungi);
   return (
     <div className="min-h-dynamic-height flex items-center justify-center px-4">
