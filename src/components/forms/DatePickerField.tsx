@@ -1,14 +1,14 @@
 import { useState } from 'react';
-import MyDatePicker from 'react-datepicker';
+import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { FaCalendarAlt } from 'react-icons/fa';
 
-export default function DatePicker() {
+export default function DatePickerField() {
   const [startDate, setStartDate] = useState<Date | null>(new Date());
 
   return (
     <div className="relative inline-block">
-      <MyDatePicker
+      <DatePicker
         selected={startDate}
         onChange={(date) => setStartDate(date)}
         dateFormat="MM-dd-yyyy"

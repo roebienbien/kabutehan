@@ -1,6 +1,8 @@
-import DatePicker from '../../components/DatePicker';
+import BookingForm from '../../components/forms/BookingForm';
+import DatePickerField from '../../components/forms/DatePickerField';
 import ProductSearch from '../../components/ProductSearch';
 import Carousel from '../../components/ui/carousel/Carousel';
+import Input from '../../components/ui/Input';
 
 type Slide = {
   title: string;
@@ -60,7 +62,8 @@ function Hero() {
     <div className="">
       <Carousel slides={carouselSlides} autoplayInterval={10_000} />
       <ProductSearch />
-      <DatePicker />
+      <DatePickerField />
+      <BookingForm />
     </div>
   );
 }
