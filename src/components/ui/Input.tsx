@@ -30,7 +30,7 @@ const Input = ({
     <div className="flex flex-col gap-1">
       {label && <label htmlFor={name}>{label}</label>}
       <input
-        {...register(name)}
+        {...register(name, type === 'number' ? { valueAsNumber: true } : {})} //to have a true number
         id={name}
         type={type}
         name={name}

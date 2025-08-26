@@ -3,8 +3,8 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import Input from '../ui/Input';
 import {
-  tourFields,
   tourSchema,
+  defaultTourValues,
   type TourFormData,
 } from '../../schema/booking-schema';
 
@@ -15,11 +15,7 @@ export default function BookingForm() {
     formState: { errors },
   } = useForm<TourFormData>({
     resolver: zodResolver(tourSchema),
-    defaultValues: {
-      firstName: '',
-      lastName: '',
-      email: '',
-    },
+    defaultValues: defaultTourValues,
   });
 
   const onSubmit = (data: TourFormData) => {
@@ -27,23 +23,67 @@ export default function BookingForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-      {tourFields.map((field) => (
-        <Input
-          name={field.name}
-          label={field.label}
-          placeholder={field.placeholder}
-          register={register}
-          error={errors[field.name]}
-        />
-      ))}
-
-      <button
-        type="submit"
-        className="rounded bg-blue-600 px-4 py-2 text-white"
+    <div className="rounded border border-gray-400 p-10">
+      <div className="text-center text-4xl font-bold">Tour Booking Form</div>
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="grid grid-cols-3 space-y-4 gap-x-4 p-10"
       >
-        Book Tour
-      </button>
-    </form>
+        <Input
+          name="firstName"
+          label="First name"
+          placeholder="Enter first name"
+          register={register}
+          error={errors.firstName}
+        />
+        <Input
+          name="lastName"
+          label="Last name"
+          placeholder="Enter last name"
+          register={register}
+          error={errors.lastName}
+        />
+        <Input
+          name="middleName"
+          label="Middle name"
+          placeholder="Enter middle name"
+          register={register}
+          error={errors.middleName}
+        />
+        <Input
+          name="email"
+          label="Email"
+          placeholder="Enter email address"
+          register={register}
+          error={errors.email}
+        />
+        <div className="block">
+          <label htmlFor="tourType">Tour type</label>
+          <select
+            {...register('tourType')}
+            className="mt-1 block w-full rounded-md border border-gray-300 bg-white p-2"
+          >
+            <option value="button">Button</option>
+            <option value="shiitake">Shiitake</option>
+            <option value="portobello">Portobello</option>
+          </select>
+        </div>
+        <Input
+          name="guests"
+          label="Guests"
+          placeholder="Enter guest"
+          type="number"
+          register={register}
+          error={errors.guests}
+        />
+
+        <button
+          type="submit"
+          className="col-span-full rounded bg-blue-600 px-4 py-2 font-bold text-white"
+        >
+          Book Tour
+        </button>
+      </form>
+    </div>
   );
 }
