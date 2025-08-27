@@ -1,10 +1,20 @@
 import { z } from 'zod';
 
+// export const defaultTourValues: TourFormData = {
+//   firstName: '',
+//   middleName: '',
+//   lastName: '',
+//   email: '',
+//   tourType: 'button',
+//   guests: 1,
+//   date: new Date(),
+// };
+//
 export const defaultTourValues: TourFormData = {
-  firstName: '',
-  middleName: '',
-  lastName: '',
-  email: '',
+  firstName: 'roe',
+  middleName: 'ped',
+  lastName: 'arn',
+  email: 'arn@email.com',
   tourType: 'button',
   guests: 1,
   date: new Date(),

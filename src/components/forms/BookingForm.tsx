@@ -1,17 +1,19 @@
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
 import Input from '../ui/Input';
 import {
   tourSchema,
   defaultTourValues,
   type TourFormData,
 } from '../../schema/booking-schema';
+import DatePickerField from './DatePickerField';
+import type { To } from 'react-router-dom';
 
 export default function BookingForm() {
   const {
     register,
     handleSubmit,
+    control,
     formState: { errors },
   } = useForm<TourFormData>({
     resolver: zodResolver(tourSchema),
@@ -19,7 +21,7 @@ export default function BookingForm() {
   });
 
   const onSubmit = (data: TourFormData) => {
-    console.log('Form submitted:', data);
+    alert(JSON.stringify(data));
   };
 
   return (
@@ -29,28 +31,28 @@ export default function BookingForm() {
         onSubmit={handleSubmit(onSubmit)}
         className="grid grid-cols-3 space-y-4 gap-x-4 p-10"
       >
-        <Input
+        <Input<TourFormData>
           name="firstName"
           label="First name"
           placeholder="Enter first name"
           register={register}
           error={errors.firstName}
         />
-        <Input
+        <Input<TourFormData>
           name="lastName"
           label="Last name"
           placeholder="Enter last name"
           register={register}
           error={errors.lastName}
         />
-        <Input
+        <Input<TourFormData>
           name="middleName"
           label="Middle name"
           placeholder="Enter middle name"
           register={register}
           error={errors.middleName}
         />
-        <Input
+        <Input<TourFormData>
           name="email"
           label="Email"
           placeholder="Enter email address"
@@ -68,7 +70,7 @@ export default function BookingForm() {
             <option value="portobello">Portobello</option>
           </select>
         </div>
-        <Input
+        <Input<TourFormData>
           name="guests"
           label="Guests"
           placeholder="Enter guest"
@@ -76,10 +78,11 @@ export default function BookingForm() {
           register={register}
           error={errors.guests}
         />
+        <DatePickerField control={control} name="date" error={errors.date} />
 
         <button
           type="submit"
-          className="col-span-full rounded bg-blue-600 px-4 py-2 font-bold text-white"
+          className="col-span-full cursor-pointer rounded bg-blue-600 px-4 py-2 font-bold text-white active:bg-blue-500"
         >
           Book Tour
         </button>
