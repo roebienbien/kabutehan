@@ -8,17 +8,20 @@ type DatePickerFieldProps = {
   control: Control<any>;
   name: string;
   error?: FieldError;
+  label: string;
 };
 
 export default function DatePickerField({
   control,
   name,
   error,
+  label,
 }: DatePickerFieldProps) {
   // const [startDate, setStartDate] = useState<Date | null>(new Date());
 
   return (
-    <div className="relative inline-block">
+    <div className="flex w-full flex-col gap-1">
+      <label htmlFor={name}>{label}</label>
       <Controller
         control={control}
         name={name}
@@ -29,11 +32,12 @@ export default function DatePickerField({
             dateFormat="MM-dd-yyyy"
             placeholderText="Select a date"
             onChangeRaw={(e) => e?.preventDefault()} // disable typing
-            className="cursor-pointer rounded border px-10 py-2"
+            className="cursor-pointer items-center rounded border border-gray-400 p-2"
+            showIcon
           />
         )}
       />
-      <FaCalendarAlt className="pointer-events-none absolute top-1/2 left-3 -translate-y-1/2 text-gray-500" />
+      {/* <FaCalendarAlt className="pointer-events-none absolute top-1/2 left-3 -translate-y-1/2 text-gray-500" /> */}
       {error && <p className="mt-1 text-sm text-red-500">{error.message}</p>}
     </div>
   );

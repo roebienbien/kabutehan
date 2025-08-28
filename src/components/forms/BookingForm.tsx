@@ -7,7 +7,22 @@ import {
   type TourFormData,
 } from '../../schema/booking-schema';
 import DatePickerField from './DatePickerField';
-import type { To } from 'react-router-dom';
+import RadioForm from '../ui/RadioForm';
+
+const options = [
+  {
+    value: 'button',
+    label: 'button',
+  },
+  {
+    value: 'portobello',
+    label: 'portobello',
+  },
+  {
+    value: 'shiitake',
+    label: 'shiitake',
+  },
+];
 
 export default function BookingForm() {
   const {
@@ -59,17 +74,17 @@ export default function BookingForm() {
           register={register}
           error={errors.email}
         />
-        <div className="block">
-          <label htmlFor="tourType">Tour type</label>
-          <select
-            {...register('tourType')}
-            className="mt-1 block w-full rounded-md border border-gray-300 bg-white p-2"
-          >
-            <option value="button">Button</option>
-            <option value="shiitake">Shiitake</option>
-            <option value="portobello">Portobello</option>
-          </select>
-        </div>
+        {/* <div className="block"> */}
+        {/*   <label htmlFor="tourType">Tour type</label> */}
+        {/*   <select */}
+        {/*     {...register('tourType')} */}
+        {/*     className="mt-1 block w-full rounded-md border border-gray-300 bg-white p-2" */}
+        {/*   > */}
+        {/*     <option value="button">Button</option> */}
+        {/*     <option value="shiitake">Shiitake</option> */}
+        {/*     <option value="portobello">Portobello</option> */}
+        {/*   </select> */}
+        {/* </div> */}
         <Input<TourFormData>
           name="guests"
           label="Guests"
@@ -78,7 +93,21 @@ export default function BookingForm() {
           register={register}
           error={errors.guests}
         />
-        <DatePickerField control={control} name="date" error={errors.date} />
+
+        <DatePickerField
+          control={control}
+          name="date"
+          label={'Select tour date'}
+          error={errors.date}
+        />
+
+        <RadioForm<TourFormData>
+          name="tourType"
+          control={control}
+          options={options}
+          label="Tour type"
+          error={errors.tourType}
+        />
 
         <button
           type="submit"
