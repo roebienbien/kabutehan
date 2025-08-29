@@ -11,20 +11,20 @@ import RadioForm from '../ui/RadioForm';
 import { useState } from 'react';
 import { pricePlans } from '../../pages/homepage/PricePlan';
 
-// const options = [
-//   {
-//     value: 'button',
-//     label: 'button',
-//   },
-//   {
-//     value: 'portobello',
-//     label: 'portobello',
-//   },
-//   {
-//     value: 'shiitake',
-//     label: 'shiitake',
-//   },
-// ];
+const options = [
+  {
+    value: 'button',
+    label: 'button',
+  },
+  {
+    value: 'portobello',
+    label: 'portobello',
+  },
+  {
+    value: 'shiitake',
+    label: 'shiitake',
+  },
+];
 
 const steps = [
   {
@@ -108,7 +108,7 @@ export default function BookingForm() {
         //     e.preventDefault();
         //   }
         // }}
-        className="relative h-[400px] w-[800px] px-10 py-4"
+        className="relative h-[600px] px-10 py-4 lg:w-[1200px]"
       >
         <div className="flex-1">
           {currentStep === 1 && (
@@ -159,40 +159,72 @@ export default function BookingForm() {
                 {/*     error={errors.tourType} */}
                 {/*   /> */}
                 {/* </div> */}
-                <div className="col-span-full flex flex-col gap-y-4">
-                  {/* <div className="flex w-fit overflow-clip rounded-lg border"> */}
-                  <div className="flex w-fit">
-                    {/* <div className="flex"> */}
-                    {pricePlans.map((plan, index) => (
-                      <button
-                        type="button"
-                        key={plan.id}
-                        onClick={() => setSelectedPlan(plan)}
-                        className={`cursor-pointer border border-gray-400 px-8 py-4 font-semibold transition ${selectedPlan.id === plan.id ? 'bg-primary border-primary text-white' : 'text-gray border-gray-400 bg-white'} ${index === 0 ? 'rounded-l-lg' : ''} ${index === pricePlans.length - 1 ? 'rounded-r-lg' : ''} `}
-                      >
-                        {plan.title}
-                      </button>
-                    ))}
-                  </div>
-                  <div>{selectedPlan.title} Details:</div>
-                  <div>{selectedPlan.description}</div>
-                </div>
+                <div className="col-span-full grid grid-cols-3 rounded-lg border border-gray-300 shadow">
+                  <div className="col-span-2 flex w-full flex-col gap-y-4 p-8">
+                    <div className="text-lg font-bold">
+                      Choose a pricing plan:
+                    </div>
+                    <div className="flex">
+                      {/* <div className="flex"> */}
+                      {pricePlans.map((plan, index) => (
+                        <label
+                          key={plan.id}
+                          onClick={() => setSelectedPlan(plan)}
+                          className={`cursor-pointer border px-12 py-2 shadow transition ${selectedPlan.id === plan.id ? 'border-gray-300 bg-gray-200' : 'text-gray border-gray-300'} ${index === 0 ? 'rounded-l-lg' : ''} ${index === pricePlans.length - 1 ? 'rounded-r-lg' : ''} `}
+                        >
+                          <input
+                            type="radio"
+                            value={plan.id}
+                            {...register('tourType')}
+                            className="hidden"
+                          />
+                          {plan.title}
+                        </label>
+                      ))}
+                    </div>
+                    <div>
+                      <div className="font-bold">
+                        {selectedPlan.title} Tour Details:
+                      </div>
+                      <div className="text-gray-500">
+                        {selectedPlan.description}
+                      </div>
+                    </div>
+                    <div className="grid grid-cols-2 gap-4">
+                      <Input<TourFormData>
+                        name="guests"
+                        label="Guests"
+                        placeholder="Enter guest"
+                        type="number"
+                        register={register}
+                        error={errors.guests}
+                      />
 
-                {/* <Input<TourFormData> */}
-                {/*   name="guests" */}
-                {/*   label="Guests" */}
-                {/*   placeholder="Enter guest" */}
-                {/*   type="number" */}
-                {/*   register={register} */}
-                {/*   error={errors.guests} */}
-                {/* /> */}
-                {/**/}
-                {/* <DatePickerField */}
-                {/*   control={control} */}
-                {/*   name="date" */}
-                {/*   label={'Select tour date'} */}
-                {/*   error={errors.date} */}
-                {/* /> */}
+                      <DatePickerField
+                        control={control}
+                        name="date"
+                        label={'Select tour date'}
+                        error={errors.date}
+                      />
+                    </div>
+                  </div>
+                  <div className="flex flex-col gap-y-2 border-l border-gray-300 p-8">
+                    <div>
+                      <div className="text-2xl font-bold">
+                        {selectedPlan.title} tour
+                      </div>
+                      <div className="text-xl text-gray-400">
+                        {selectedPlan.subtitle}
+                      </div>
+                    </div>
+                    <div className="text-3xl font-bold">
+                      ₱{selectedPlan.price}{' '}
+                      <span className="text-base font-normal text-gray-400">
+                        per guest
+                      </span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           )}
