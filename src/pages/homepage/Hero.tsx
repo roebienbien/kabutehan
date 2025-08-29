@@ -63,9 +63,9 @@ function Hero() {
       <Carousel slides={carouselSlides} autoplayInterval={10_000} />
       {/* <ProductSearch /> */}
       {/* <DatePickerField /> */}
-      <div className="flex justify-center p-20">
-        <BookingForm />
-      </div>
+      {/* <div className="flex justify-center p-20"> */}
+      {/*   <BookingForm /> */}
+      {/* </div> */}
     </div>
   );
 }

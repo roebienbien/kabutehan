@@ -7,7 +7,7 @@ import HamburgerMenu from './ui/HamburgerMenu';
 const NavLinks = [
   {
     name: 'Home',
-    url: 'home',
+    url: '/',
   },
   {
     name: 'About',
@@ -35,7 +35,9 @@ const Navbar = () => {
       <div className="mx-auto flex h-14 max-w-[90%] items-center justify-between px-4 text-xl">
         <div className="flex items-center gap-x-12">
           {/* Logo */}
-          <span className="text-2xl font-extrabold">Kabutehan</span>
+          <Link to="/" className="text-2xl font-extrabold">
+            Kabutehan
+          </Link>
 
           {/* Desktop Links */}
           <div className="hidden items-center gap-x-10 text-lg font-medium lg:flex">

@@ -25,8 +25,6 @@ export default function RadioForm<T extends Record<string, any>>({
   error,
   label,
 }: Props<T>) {
-  // const { control } = useForm();
-  // const [selected, setSelected] = useState('button');
   return (
     <div className="flex flex-col gap-1">
       <label htmlFor={name} className="font-medium">

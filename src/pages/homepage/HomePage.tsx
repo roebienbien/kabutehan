@@ -2,6 +2,7 @@ import FAQ from './FAQ';
 import FinalCTA from './FinalCTA';
 import Hero from './Hero';
 import MedicinalFungi from './MedicinalFungi';
+import PricePlan from './PricePlan';
 import Testimonials from './Testimonials';
 import TrackRecordSection from './TrackRecordSection';
 
@@ -13,6 +14,7 @@ const HomePageItems = [
   Hero,
   FAQ,
   MedicinalFungi,
+  PricePlan,
   Testimonials,
   TrackRecordSection,
   FinalCTA,
